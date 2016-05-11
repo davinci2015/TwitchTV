@@ -1,0 +1,52 @@
+html,body,input,button {
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body,h1,h2,h3,h4,h5,h6,ul,ol,p,hr,form {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+hr          { float: left; width: 100%; height: 1px; }
+ul,ol       { list-style: none; }
+
+//inputs
+input { width: auto; }
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+textarea {
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+textarea { resize: vertical; }
+input:focus, textarea:focus, select:focus { outline: none; }
+
+figure {
+    padding: 0;
+    margin: 0;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

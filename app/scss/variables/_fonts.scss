@@ -1,0 +1,8 @@
+@include font-face(Nexa, 'fonts/nexa-rust', 400, normal);
+$openSans: 'Open Sans', sans-serif;
+
+@mixin Nexa {
+  font-family: 'Nexa';
+  font-weight: 400; font-style: normal;
+}
+

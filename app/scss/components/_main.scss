@@ -1,0 +1,144 @@
+.main {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &__logo {
+    z-index: -1;
+    img {
+      display: block;
+
+      margin: 0 auto;
+      padding: 70px 0;
+    }
+  }
+
+  .sprite-filter {
+    cursor: pointer;
+    position: fixed;
+
+    top: 50px;
+    left: 50px;
+    width: 22px;
+    height: 26px;
+    background-position: -31px -5px;
+  }
+
+  &__load-more-wrapper {
+    display: table;
+    position: relative;
+    clear: both;
+    text-align: center;
+    line-height: 14px;
+
+    width: 90px;
+    height: 90px;
+    margin: 50px auto 40px auto;
+
+    border: 1px solid rgba(#fff, 0.4);
+    border-radius: 50%;
+
+    cursor: pointer;
+    @include transition(all 200ms linear);
+
+    &:hover {
+      background-color: rgba(242,109,125,0.5);
+      border-radius: 50%;
+    }
+  }
+
+  &__load-more {
+    display: table-cell;
+    vertical-align: middle;
+
+    font-family: 'Nexa';
+    font-size: 14px;
+    color: #fff;
+  }
+
+  &__menu-wrapper {
+    position: fixed;
+
+    height: 30px;
+    width: 30px;
+    top: 50px;
+    right: 50px;
+
+    cursor: pointer;
+  }
+
+  &__menu-open-icon {
+    position: absolute;
+    width: 22px;
+    height: 4px;
+
+    background-color: $sidebarBg;
+
+    &::before, &::after {
+      position: absolute;
+      content: '';
+
+      width: 22px;
+      height: 4px;
+
+      background-color: $sidebarBg;
+    }
+
+    &::after { top: 8px; }
+    &::before { top: 16px; }
+  }
+
+  &__cards-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    margin: 50px auto;
+    width: 80%;
+    height: auto;
+
+    @include transition(all 200ms ease-in-out);
+  }
+
+  &__cards { overflow: hidden; }
+
+  &__no-streams {
+    text-align: center;
+    font-family: 'Nexa';
+    color: $sidebarBg;
+  }
+
+  .filter-sidebar-open { @include translate(40%, 0); }
+  .menu-sidebar-open { @include translate(-40%, 0); }
+}
+
+.overlay {
+  position: fixed;
+  background-color: rgba(0,0,0,0.4);
+
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+@media screen and (min-width: 1367px) {
+  .main {
+    &__cards-wrapper { width: 70%; }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    &__logo img { width: 80%; }
+
+    .sprite-filter {
+      top: 30px;
+      left: 25px;
+    }
+
+    &__menu-wrapper {
+      top: 30px;
+      right: 35px;
+    }
+  }
+}

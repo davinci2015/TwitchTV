@@ -1,0 +1,60 @@
+.menu {
+  position: fixed;
+  height: 100vh;
+  width: 25%;
+  top: 0;
+  right: 0;
+  margin-right: -25%;
+  opacity: 0;
+  @include transition(all 250ms ease-in-out);
+  background-color: $sidebarBg;
+
+  &__open {
+    margin-right: 0;
+    opacity: 1;
+  }
+
+  &__content { margin: 40px 35px; }
+
+  .close-icon--menu {
+    left: -70px;
+    top: 50px;
+  }
+
+  &__option {
+    font-size: 14px;
+    font-family: 'Nexa';
+    color: $blue;
+
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    @include transition(all 300ms ease);
+    &:hover { color: lighten($blue, 20%); }
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .menu {
+    width: 40%;
+    margin-right: -40%;
+
+    &__open {
+      margin-right: 0;
+      opacity: 1;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    width: 70%;
+    margin-right: -70%;
+
+    &__open {
+      margin-right: 0;
+      opacity: 1;
+    }
+  }
+}
+

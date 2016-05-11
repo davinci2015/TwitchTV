@@ -1,0 +1,41 @@
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  @include gradient(left, rgba(86,116,185,1) 0%, rgba(242,109,125,1) 100%);
+}
+
+.show { display: inline; }
+.hide { display: none !important; }
+
+.sprite {
+  background-image: url(imgs/spritesheet.png);
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #fff;
+    @include transition(all 100ms ease-in-out);
+  }
+
+  &::before { @include rotate(45); }
+  &::after { @include rotate(-45); }
+
+  &:hover {
+    &::before, &::after { @include rotate(180); }
+  }
+}

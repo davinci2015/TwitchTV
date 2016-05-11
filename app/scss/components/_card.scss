@@ -1,0 +1,201 @@
+.card {
+  position: relative;
+  display: inline-block;
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+  margin-bottom: 25px;
+  height: 400px;
+
+  background-color: #fff;
+  cursor: pointer;
+
+  @include transform(all 100ms ease-in-out);
+
+  &:nth-child(3n+3) { margin-right: 0; }
+  &:hover { @include box-shadow(0px 8px 53px -7px rgba(0,0,0,0.68)); }
+
+  animation        : getIn 300ms linear forwards;
+  -webkit-animation: getIn 300ms linear forwards;
+  -moz-animation   : getIn 300ms linear forwards;
+  -o-animation     : getIn 300ms linear forwards;
+
+  // ######################################
+  // ## CARD TOP ##########################
+  // ######################################
+
+  &__top {
+    position: relative;
+    display: table;
+    height: 30%;
+    width: calc(100% + 1px);
+    overflow: hidden;
+
+    &:after {
+      position: absolute;
+      content: "";
+      background-color: rgba(0, 79, 145, 0.8);
+
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      transition: all 180ms ease-in-out;
+      z-index: 9;
+    }
+  }
+
+  &__top-content {
+    padding-left: 20px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &__logo {
+    position: relative;
+    vertical-align: middle;
+    width: 60px;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  &__top-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 5;
+  }
+
+  &__display-name {
+    position: relative;
+    font-family: $openSans;
+    font-weight: 700;
+    font-size: 12px;
+    color: #fff;
+
+    margin-left: 15px;
+    z-index: 10;
+  }
+
+  // ########################################
+  // ## CARD CENTER #########################
+  // ########################################
+
+  &__center {
+    height: 50%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  // ########################################
+  // ## CARD BOTTOM #########################
+  // ########################################
+
+  &__bottom {
+    min-height: 20%;
+    position: relative;
+  }
+
+  &__game-title {
+    font-family: 'Nexa';
+    font-size: 16px;
+    color: $blue;
+    margin-bottom: 5px;
+  }
+
+  .sprite-eye {
+    margin: 2px 5px 0 0;
+    float: left;
+    width: 16px;
+    height: 10px;
+    background-position: -5px -5px;
+  }
+
+  &__bottom-info {
+    position: absolute;
+    margin: 20px;
+    top: 25%;
+    @include translate(0, -50%);
+  }
+
+  &__views, &__created-at  {
+    float: left;
+    font-family: 'Nexa';
+    font-size: 12px;
+    color: $grey;
+  }
+
+  &__created-at {
+    position: relative;
+    margin-left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: -13px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: lighten($grey, 50%);
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .card {
+    height: 500px;
+    &__logo { width: 70px; }
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .card {
+    height: 350px;
+    width: 46%;
+    margin-right: 2%;
+    margin-bottom: 15px;
+
+    &:nth-child(2n+2) { margin-right: 0; }
+    &:nth-child(3n+3) { margin-right: 2%; }
+
+    &__logo { width: 70px; }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    height: 400px;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 15px;
+
+    &__logo { width: 70px; }
+  }
+}
+
+@keyframes getIn {
+  from { @include scale(0); }
+  to { @include scale(1);  }
+}
+
+@-webkit-keyframes getIn {
+  from { @include scale(0); }
+  to { @include scale(1);  }
+}
+
+@-moz-keyframes getIn {
+  from { @include scale(0); }
+  to { @include scale(1);  }
+}
+
+@-o-keyframes getIn {
+  from { @include scale(0); }
+  to { @include scale(1);  }
+}
