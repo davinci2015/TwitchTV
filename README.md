@@ -1,6 +1,6 @@
 ## TWITCH TV Starter
 
-To get you started clone repository and install dependencies.
+To get you started clone repository and install dependencies or just open **dist/index.html**.
 
 Clone repository:
 
