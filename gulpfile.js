@@ -14,7 +14,7 @@ const paths = {
     sass: 'app/scss/main.scss',
     js: 'app/js/main.js',
     toCopy: 'index.html',
-    dest: 'dist/'
+    dest: 'docs/'
 };
 
 gulp.task('sass', function () {
@@ -33,7 +33,7 @@ gulp.task('js', function () {
 
 gulp.task('copy', function () {
     return gulp.src(paths.toCopy)
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('serve', function () {
@@ -42,7 +42,7 @@ gulp.task('serve', function () {
         open: false,
         ghostMode: false,
         server: {
-            baseDir: 'dist'
+            baseDir: 'docs'
         }
     });
 });
