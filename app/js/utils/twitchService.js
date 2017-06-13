@@ -37,13 +37,13 @@ export function getFilteredStreams(streamLanguage, broadcasterLanguage, gameFilt
     let url = gameFilter ?
         `/search/streams?q=${gameFilter.replace(' ', '+')}&type=suggest` :
         `/streams?language=${streamLang}&broadcaster_language=${broadcastLang}`;
-    
+
     send(
         'GET',
         url,
         undefined,
         (streams) => {
-            if(gameFilter && (streamLanguage.set || broadcasterLanguage.set))
+            if (gameFilter && (streamLanguage.set || broadcasterLanguage.set))
                 streams.streams = filterGameByLanguage(streams.streams, streamLang, broadcastLang);
             success(streams);
         },
@@ -64,14 +64,14 @@ export function getFilteredStreams(streamLanguage, broadcasterLanguage, gameFilt
  */
 function filterGameByLanguage(streams, streamLanguage, broadcasterLanguage) {
     let streamsFiltered = [];
-    
+
     for (let index in streams) {
-        if (streamLanguage && streams[index].channel.language === streamLanguage) 
+        if (streamLanguage && streams[index].channel.language === streamLanguage)
             streamsFiltered.push(streams[index]);
-        if (broadcasterLanguage && streams[index].channel.broadcaster_language === broadcasterLanguage) 
+        if (broadcasterLanguage && streams[index].channel.broadcaster_language === broadcasterLanguage)
             streamsFiltered.push(streams[index]);
     }
-    
+
     return streamsFiltered;
 }
 
